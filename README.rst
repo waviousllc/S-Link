@@ -3,9 +3,10 @@
 
 S-Link
 ======
-S-Link is a simple, scalable, and flexible link controller protocol geared towards chiplets and chip-to-chip communication. S-Link defines
-the link layer, and gives freedom for various application and physical layers. The ultimate goal of S-Link is to provide a simple alternative
-for chiplet communication compared to other protocols.
+Chiplets require an efficient and lightweight interface to an FPGA for testing, validation, and prototyping. 
+S-Link is a simple, scalable, and flexible link controller protocol geared towards chiplets and chip-to-chip 
+communication. S-Link defines the link layer, and gives freedom for various application and physical layers. 
+The ultimate goal of S-Link is to provide a simple alternative for chiplet communication compared to other protocols.
 
 S-Link supports the following features:
 
@@ -85,14 +86,9 @@ This will run ``sanity_test`` which just sends a few packets from one side of S-
 
 Synthesis/PnR
 -------------
-I had started using the experimental OpenROAD Flow for synthesis. Unfortunately as of Aug 1st 2020, the OpenROAD-flow repo has gone MIA so
-it appears I need to setup this flow manually. Stay tuned for more information and some scripts to run S-Link with the OpenROAD tools.
+S-Link has been synthesized with Cadence Genus, PnR'ed with Mentor Aprisa. Previous versions have been compatible with Yosys and OpenROAD (newer versions have not been tested). For an example area estimate, a 1-Lane, 8bit phy data width, with an AXI/APB/Interrupt application channel was roughly 0.02mm^2 (with flops synthesized, no memories for applicaiton layers). The application layer ran at 38.4MHz and the link clock was set to 1GHz. Higher frequencies are possible, these frequencies were set based on system architecture.
 
-S-Link has been synthesized with Yosys, and prior to the OpenROAD-flow going missing, had been ran through OpenRoad to GDS (no optimizations, just
-flushing the flow out).
-
-An initial 4TX/4RX 8bit PHY version of S-Link was tested on a Zedboard using Vivado 2019.2. This was tested using a simple AXI application
-layer and allowed the built in ARM core to communicate with an on-chip BRAM via AXI.
+S-Link has also been implemented in Xilinx FPGAs for communication over 1.8V CMOS and LVDS.
 
 
 Using S-Link

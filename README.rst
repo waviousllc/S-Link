@@ -86,9 +86,9 @@ This will run ``sanity_test`` which just sends a few packets from one side of S-
 
 Synthesis/PnR
 -------------
-S-Link has been synthesized with Cadence Genus, PnR'ed with Mentor Aprisa. Previous versions have been compatible with Yosys and OpenROAD (newer versions have not been tested). For an example area estimate, a 1-Lane, 8bit phy data width, with an AXI/APB/Interrupt application channel was roughly 0.02mm^2 (with flops synthesized, no memories for applicaiton layers). The application layer ran at 38.4MHz and the link clock was set to 1GHz. Higher frequencies are possible, these frequencies were set based on system architecture.
+S-Link has been synthesized with Cadence Genus, PnR'ed with Mentor Aprisa. Previous versions have been compatible with Yosys and OpenROAD (newer versions have not been tested). For an example area/timing estimate, a 1-Lane, 8bit phy data width, with an AXI/APB/Interrupt application channel was roughly 0.02mm^2 in GF12LP+ (with flops synthesized, no memories for applicaiton layers). The application layer ran at 38.4MHz and the link clock was set to 1GHz. Higher frequencies are possible, these frequencies were set based on system architecture.
 
-S-Link has also been implemented in Xilinx FPGAs for communication over 1.8V CMOS and LVDS.
+S-Link has also been implemented in Xilinx FPGAs (XC7Z020) for communication over 1.8V CMOS and LVDS. As an example, a 4lane-8bit phy data width implementation could sucessfully send traffic off-chip at 100MHz (400Mbps total bandwidth each direction) between two S-Link implemenations. This was with minimal effort given to timing closure, so higher frequencies are possible on higher performance FPGAs.
 
 
 Using S-Link
